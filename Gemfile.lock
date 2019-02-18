@@ -551,7 +551,7 @@ DEPENDENCIES
   rubocop (~> 0.64.0)
   ruby-openid
   sanitize
-  sass-rails (~> 5.0, >= 5.0.7)
+  sass-rails (>= 3.2)
   scrypt (~> 3)
   sidekiq
   skylight
