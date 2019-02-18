@@ -1,7 +1,7 @@
 /* Like button functionality of nodes */
 
 // functionalize appearance changes
-function changelikecount(value, node_id) {
+function changeLikeCount(value, node_id) {
   window.value = value;
   window.node_id = node_id;
 
@@ -22,15 +22,14 @@ function renderLikeStar(value, node_id) {
 }
 
 function changeLikeStatus(node_id, method) {
-  // method should be passed in
   let msg = method === "/delete" ? "Unliked!" : "Liked!";
   window.msg = msg;
   console.log(window.msg);
-  $.getJSON("/likes/node/" + node_id + `${method}`).then(function(response) {
+  $.getJSON("/likes/node/" + node_id + `${method}`).then(function(resp) {
     notyNotification('mint', 3000, 'success', 'topRight', `${msg}`);
-    changelikecount(parseInt(response), node_id);
-    renderLikeStar(parseInt(response), node_id);
-  }).then(function(response) {
+    changeLikeCount(parseInt(resp), node_id);
+    renderLikeStar(parseInt(resp), node_id);
+  }).then(function(resp) {
     let method1 = method === "/delete" ? clicknotliked : clickliked
     $('#like-button-' + node_id).on('click', method1);
     return $('#like-button-' + node_id).prop('disabled', false)
@@ -41,14 +40,12 @@ function clickliked() {
   var node_id = $(this).attr('node-id');
   $('#like-button-' + node_id).prop('disabled', true)
   $('#like-button-' + node_id).off('click', clickliked);
-  $('#like-button-' + node_id).off('click', clicknotliked);
   changeLikeStatus(node_id, "/delete");
 }
 
 function clicknotliked() {
   var node_id = $(this).attr('node-id');
   $('#like-button-' + node_id).prop('disabled', true);
-  $('#like-button-' + node_id).off('click', clickliked);
   $('#like-button-' + node_id).off('click', clicknotliked);
   changeLikeStatus(node_id, "/create");
 }
