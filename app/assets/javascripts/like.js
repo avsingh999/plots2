@@ -32,20 +32,20 @@ function changeLikeStatus(node_id, method) {
   }).then(function(resp) {
     let method1 = method === "/delete" ? clicknotliked : clickliked
     $('#like-button-' + node_id).on('click', method1);
-    return $('#like-button-' + node_id).prop('disabled', false)
+    // return $('#like-button-' + node_id).prop('disabled', false)
   });
 }
 
 function clickliked() {
   var node_id = $(this).attr('node-id');
-  $('#like-button-' + node_id).prop('disabled', true)
+  // $('#like-button-' + node_id).prop('disabled', true)
   $('#like-button-' + node_id).off('click', clickliked);
   changeLikeStatus(node_id, "/delete");
 }
 
 function clicknotliked() {
   var node_id = $(this).attr('node-id');
-  $('#like-button-' + node_id).prop('disabled', true);
+  // $('#like-button-' + node_id).prop('disabled', true);
   $('#like-button-' + node_id).off('click', clicknotliked);
   changeLikeStatus(node_id, "/create");
 }
