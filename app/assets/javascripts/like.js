@@ -16,18 +16,6 @@ function changelikecount(value, node_id) {
 
 }
 
-// function shownotliked(node_id) {
-
-  // $('#like-star-' + node_id)[0].className = "fa fa-star-o";
-
-// }
-
-// function showliked(node_id) {
-
-//   $('#like-star-' + node_id)[0].className = "fa fa-star";
-
-// }
-
 function renderLikeStar(value, node_id) {
   let name;
   value === -1 ? name = "fa fa-star" : name = "fa fa-star-o"
@@ -45,9 +33,8 @@ function changeLikeStatus(node_id, method) {
     notyNotification('mint', 3000, 'success', 'topRight', `${msg}`);
     changelikecount(parseInt(response), node_id);
     renderLikeStar(parseInt(response), node_id);
-    // $(this).prop('disabled', false);
   }).then(function(response) {
-    let method1 = method === "/delete" ? clickliked : clicknotliked
+    let method1 = method === "/delete" ? clicknotliked : clickliked
     let method2 = method1 === clickliked ? clicknotliked : clickliked
     $('#like-button-' + node_id).on('click', method1);
     return $('#like-button-' + node_id).prop('disabled', false)
@@ -55,8 +42,7 @@ function changeLikeStatus(node_id, method) {
   
 }
 
-// support AJAX button clicking
-function clicknotliked() {
+function clickliked() {
   var node_id = $(this).attr('node-id');
   $('#like-button-' + node_id).prop('disabled', true)
   $('#like-button-' + node_id).off('click', clickliked);
@@ -69,17 +55,7 @@ function clicknotliked() {
   // $('#like-button-' + node_id).prop('disabled', false)
 }
 
-  // toggle liked to not liked.
-  // $.getJSON("/likes/node/" + node_id + "/delete")
-  //  .done(function(response) {
-    //  window.response = response;
-    // notyNotification('mint', 3000, 'success', 'topRight', 'Unliked!');
-    // shownotliked(node_id);
-    // changelikecount(parseInt(response), node_id);
-
-// }
-
-function clickliked() {
+function clicknotliked() {
 
   var node_id = $(this).attr('node-id');
   $('#like-button-' + node_id).prop('disabled', true);
