@@ -3,17 +3,16 @@
 // functionalize appearance changes
 function clickliked() {
   var node_id = $(this).attr('node-id');
-  $('#like-button-' + node_id).off('click', clickliked);
   changeLikeStatus(node_id, "/delete");
 }
 
 function clicknotliked() {
   var node_id = $(this).attr('node-id');
-  $('#like-button-' + node_id).off('click', clicknotliked);
   changeLikeStatus(node_id, "/create");
 }
 
 function changeLikeStatus(node_id, method) {
+  $('#like-button-' + node_id).off();
   let msg = method === "/delete" ? "Unliked!" : "Liked!";
   $.getJSON("/likes/node/" + node_id + `${method}`)
     .then(function(resp) {
@@ -29,8 +28,7 @@ function changeLikeStatus(node_id, method) {
 
 function updateLikeCount(value, node_id) {
   var count = $('#like-count-' + node_id).html();
-  count = parseInt(count);
-  count += value;
+  count = parseInt(count) + value;
   $('#like-count-' + node_id).html(count);
 }
 
