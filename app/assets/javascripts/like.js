@@ -34,7 +34,7 @@ function updateLikeCount(value, node_id) {
   $('#like-count-' + node_id).html(count);
 }
 
-// where fa fa-star-o is clear star (indicating you are not currently liking)
+// where fa fa-star-o is a clear star (indicating you are not currently liking)
 function renderLikeStar(value, node_id) {
   let name = value === -1 ? "fa fa-star-o" : "fa fa-star"
   $('#like-star-' + node_id)[0].className = name;

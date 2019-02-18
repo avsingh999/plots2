@@ -396,6 +396,11 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bootstrap-3-typeahead@^4.0.0:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-3-typeahead/-/bootstrap-3-typeahead-4.0.2.tgz#cb1c969044856862096fc8c71cc21b3acbb50412"
+  integrity sha1-yxyWkESFaGIJb8jHHMIbOsu1BBI=
+
 bootstrap-datepicker@^1.6.0, bootstrap-datepicker@~1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/bootstrap-datepicker/-/bootstrap-datepicker-1.8.0.tgz#c63513931e6f09f16ae9f11b62f32d950df3958e"
@@ -409,10 +414,6 @@ bootstrap-tokenfield@^0.12.0, bootstrap-tokenfield@~0.12.0:
   integrity sha1-XXY8PRlt5xB4rE1J3C6hacuHDN8=
   dependencies:
     jquery "^2.1.0"
-
-bootstrap-typeahead@bassjobsen/Bootstrap-3-Typeahead#~4.0.0:
-  version "4.0.2"
-  resolved "https://codeload.github.com/bassjobsen/Bootstrap-3-Typeahead/tar.gz/7b59699d14865a3b7355c0e05f7a9cdc75f7e8e4"
 
 bootstrap@^3.2.0, bootstrap@~3.4.0:
   version "3.4.1"
@@ -2015,6 +2016,7 @@ ics.js@nwcell/ics.js#^0.2.0, ics@nwcell/ics.js#^0.2.0:
   resolved "https://codeload.github.com/nwcell/ics.js/tar.gz/4f2e67a79af161af74d986ecc47c3d166a074f11"
   dependencies:
     bower "~1.2.8"
+    file-saver "^1.3.3"
     grunt "~0.4.2"
     grunt-contrib-concat "~0.3.0"
     grunt-contrib-jshint "~0.7.2"
