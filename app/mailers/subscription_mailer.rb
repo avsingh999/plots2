@@ -16,15 +16,15 @@ class SubscriptionMailer < ActionMailer::Base
     )
   end
 
-  # def notify_note_liked(node, user)
-  #   subject = "[PublicLab] #{user.username} liked your " +
-  #             (node.has_power_tag('question') ? 'question' : 'research note') +
-  #             " (##{node.id})"
-  #   @user = user
-  #   @node = node
-  #   @footer = feature('email-footer')
-  #   mail(to: node.author.email, subject: subject)
-  # end
+  def notify_note_liked(node, user)
+    subject = "[PublicLab] #{user.username} liked your " +
+              (node.has_power_tag('question') ? 'question' : 'research note') +
+              " (##{node.id})"
+    @user = user
+    @node = node
+    @footer = feature('email-footer')
+    mail(to: node.author.email, subject: subject)
+  end
 
   def notify_tag_added(node, tag, tagging_user)
     @tag = tag
